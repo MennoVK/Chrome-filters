@@ -56,7 +56,7 @@ document.addEventListener("click", function (e) {
       e.target.nextElementSibling.defaultValue;
     updatePercentage();
   } else if (e.target.className == "resetallbutton") {
-    console.log("reset");
     resetForm.reset();
+    updatePercentage();
   }
 });
