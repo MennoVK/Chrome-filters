@@ -2,9 +2,8 @@
 
 A browser-extension to apply css filters like blur, brightness and saturation.
 
-<a href="https://chrome.google.com/webstore/detail/chrome-filters/ndnmncogkhfejclnlmmmflipihindiip" target="_blank"><img src="https://i.imgur.com/Qsdabfb.png"></a>
+![popup preview](https://github.com/MennoVK/Chrome-filters/blob/master/screenshots/popup.png?raw=true)
 
-<br>
 <h3>Find this browser-extension here:</h2> 
 
 [Chrome](https://chrome.google.com/webstore/detail/chrome-filters/ndnmncogkhfejclnlmmmflipihindiip)
