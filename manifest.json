@@ -4,8 +4,8 @@
   "description": "Customize your chrome with css filters",
   "version": "1.0.3",
   "icons": {
-    "48": "assets/icon48.png",
-    "128": "assets/icon128.png"
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "action": {
     "default_popup": "index.html"
