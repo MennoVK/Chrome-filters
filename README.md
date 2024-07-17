@@ -1,5 +1,9 @@
-<h1>A Chrome-extension to apply css filters like blur, brightness and saturation.</h1>
+<h1>Chrome filters</h1>
 
-<a href="https://chrome.google.com/webstore/detail/chrome-filters/ndnmncogkhfejclnlmmmflipihindiip" target="_blank"><img src="https://i.imgur.com/Qsdabfb.png"></a>
+A browser-extension to apply css filters like blur, brightness and saturation.
 
-Download at: https://chrome.google.com/webstore/detail/chrome-filters/ndnmncogkhfejclnlmmmflipihindiip
+![popup preview](https://github.com/MennoVK/Chrome-filters/blob/master/screenshots/popup.png?raw=true)
+
+<h3>Find this browser-extension here:</h2> 
+
+[Chrome](https://chrome.google.com/webstore/detail/chrome-filters/ndnmncogkhfejclnlmmmflipihindiip)
