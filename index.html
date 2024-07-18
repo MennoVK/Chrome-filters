@@ -9,17 +9,14 @@
     <title>Chrome Filters</title>
   </head>
   <body>
-    <article class="container">
-      <div class="header">
-        <button class="resetallbutton">Reset all</button>
-        <h1>Chrome Filters</h1>
-      </div>
+    <header class="header">
+      <h1>Chrome Filters</h1>
+    </header>
+    <main>
+      <button id="resetAllButton">Reset all</button>
       <form id="resetForm">
-        <section class="sliderContent">
-          <label for="blur">Blur</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="blur">Blur</label>
             <input
               type="range"
               min="0"
@@ -30,14 +27,10 @@
               name="blur"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="brightness">Brightness</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="brightness">Brightness</label>
             <input
               type="range"
               min="0"
@@ -47,14 +40,10 @@
               name="brightness"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="contrast">Contrast</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="contrast">Contrast</label>
             <input
               type="range"
               min="0"
@@ -64,14 +53,10 @@
               name="contrast"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="grayscale">Grayscale</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="grayscale">Grayscale</label>
             <input
               type="range"
               min="0"
@@ -81,14 +66,10 @@
               name="grayscale"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="hue-rotate">Hue-rotate</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="hue-rotate">Hue-rotate</label>
             <input
               type="range"
               min="0"
@@ -98,14 +79,10 @@
               name="hue-rotate"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="invert">Invert</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="invert">Invert</label>
             <input
               type="range"
               min="0"
@@ -115,14 +92,10 @@
               name="invert"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="opacity">Opacity</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="opacity">Opacity</label>
             <input
               type="range"
               min="0"
@@ -132,14 +105,10 @@
               name="opacity"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="saturate">Saturate</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="saturate">Saturate</label>
             <input
               type="range"
               min="0"
@@ -149,14 +118,10 @@
               name="saturate"
             />
             <p>100%</p>
-          </div>
         </section>
 
-        <section class="sliderContent">
-          <label for="sepia">Sepia</label>
-          <div class="slider">
-            <button class="resetbutton">Reset</button>
-
+        <section class="slider">
+            <label for="sepia">Sepia</label>
             <input
               type="range"
               min="0"
@@ -166,22 +131,14 @@
               name="sepia"
             />
             <p>100%</p>
-          </div>
         </section>
       </form>
-    </article>
+    </main>
     <footer>
-      <div class="created">
         <p>Created By:</p>
-        <p>
-          <a href="https://mennoveerkamp.com" target="_blank">Menno Veerkamp</a>
-        </p>
-      </div>
-      <p>
-        <a href="https://www.buymeacoffee.com/mennoveerkamp" target="_blank"
-          >Buy me a coffee</a
-        >
-      </p>
+        <a href="https://mennoveerkamp.com" target="_blank">Menno Veerkamp</a>
+        <br>
+        <a href="https://www.buymeacoffee.com/mennoveerkamp" target="_blank">Buy me a coffee</a>
     </footer>
   </body>
 </html>
