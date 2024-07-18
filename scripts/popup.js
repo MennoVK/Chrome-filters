@@ -1,62 +1,67 @@
-blurslider = document.getElementById("blurslider");
-brightnessslider = document.getElementById("brightnessslider");
-contrastslider = document.getElementById("contrastslider");
-grayscaleslider = document.getElementById("grayscaleslider");
-huerotateslider = document.getElementById("huerotateslider");
-invertslider = document.getElementById("invertslider");
-opacityslider = document.getElementById("opacityslider");
-saturateslider = document.getElementById("saturateslider");
-sepiaslider = document.getElementById("sepiaslider");
+const resetForm = document.getElementById("resetForm");
 
-resetForm = document.getElementById("resetForm");
+const sliders = [
+  "blur",
+  "brightness",
+  "contrast",
+  "grayscale",
+  "huerotate",
+  "invert",
+  "opacity",
+  "saturate",
+  "sepia"
+].reduce((acc, name) => {
+  acc[name] = document.getElementById(`${name}slider`);
+  return acc;
+}, {});
 
-chrome.storage.local.get("filters", function (result) {
-  filters = JSON.parse(result["filters"]);
-  blurslider.value = filters.blur;
-  brightnessslider.value = filters.brightness;
-  contrastslider.value = filters.contrast;
-  grayscaleslider.value = filters.grayscale;
-  huerotateslider.value = filters.huerotate;
-  invertslider.value = filters.invert;
-  opacityslider.value = filters.opacity;
-  saturateslider.value = filters.saturate;
-  sepiaslider.value = filters.sepia;
-});
+const restorePopup = async () => {
+  const result = await chrome.storage.local.get("filters")
+  const filters = JSON.parse(result.filters);
+  for (const [name, slider] of Object.entries(sliders)) {
+    slider.value = filters[name] || 0;
+  }
+}
 
-var filters = {};
-updatePercentage = () => {
-  filters.blur = blurslider.value;
-  filters.brightness = brightnessslider.value;
-  filters.contrast = contrastslider.value;
-  filters.grayscale = grayscaleslider.value;
-  filters.huerotate = huerotateslider.value;
-  filters.invert = invertslider.value;
-  filters.opacity = opacityslider.value;
-  filters.saturate = saturateslider.value;
-  filters.sepia = sepiaslider.value;
-  chrome.storage.local.set({ filters: JSON.stringify(filters) }, () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.scripting.executeScript({
-        target: { tabId: tabs[0].id },
-        files: ["scripts/content.js"],
-      });
+const setFilters = () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]?.url?.startsWith("chrome://")) return;
+      chrome.scripting.executeScript(
+        {
+            target: { tabId: tabs[0].id },
+            files: ["scripts/content.js"],
+        },
+        () => {
+            chrome.scripting.executeScript({
+                target: { tabId: tabs[0].id },
+                func: () => {
+                    setFilters();
+                },
+            });
+        }
+    );
     });
-  });
 };
 
-document.addEventListener("change", function (e) {
-  if (e.target.tagName == "INPUT") {
-    updatePercentage();
-  }
-});
+const storeFilters = () => {
+  const filters = Object.fromEntries(
+    Object.entries(sliders).map(([name, slider]) => [name, slider.value])
+  );
 
-document.addEventListener("click", function (e) {
-  if (e.target.className == "resetbutton") {
-    e.target.nextElementSibling.value =
-      e.target.nextElementSibling.defaultValue;
-    updatePercentage();
-  } else if (e.target.className == "resetallbutton") {
-    resetForm.reset();
-    updatePercentage();
+  chrome.storage.local.set({filters: JSON.stringify(filters)})
+}
+
+const resetFilters = () => {
+  resetForm.reset();
+  storeFilters();
+  setFilters();
+}
+
+restorePopup()
+resetAllButton.addEventListener("click", resetFilters)
+document.addEventListener("input", (e) => {
+  if (e.target.tagName === "INPUT") {
+    storeFilters();
+    setFilters();
   }
 });
